@@ -1,0 +1,55 @@
+    <mat-card class="add-user-card mat-elevation-z4">
+  <mat-toolbar color="primary" class="toolbar">
+    <mat-icon>person_add</mat-icon>
+    <span>Add New User</span>
+  </mat-toolbar>
+
+  <form #f="ngForm" (ngSubmit)="updateUser()" class="form-container">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>First Name</mat-label>
+      <input
+        matInput
+        [(ngModel)]="user.firstName"
+        name="firstName"
+        required
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Last Name</mat-label>
+      <input
+        matInput
+        [(ngModel)]="user.lastName"
+        name="lastName"
+        required
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        [(ngModel)]="user.email"
+        name="email"
+        type="email"
+        required
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+    <div class="action-buttons">
+      <button mat-flat-button color="primary" type="submit" [disabled]="f.invalid">
+        <mat-icon>save</mat-icon>
+        Save User
+      </button>
+
+      <button mat-stroked-button color="warn" routerLink="/home/app-user-list">
+        <mat-icon>cancel</mat-icon>
+        Cancel
+      </button>
+    </div>
+  </form>
+</mat-card>
+

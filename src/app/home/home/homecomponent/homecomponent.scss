@@ -1,0 +1,138 @@
+/* === DASHBOARD LAYOUT === */
+
+.dashboard-container {
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+  overflow: hidden; 
+}
+
+.content {
+  position: relative;
+  margin-top: 60px; /* below navbar */
+  margin-left: 220px; /* beside sidebar */
+  padding: 20px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  transition: margin-left 0.3s ease;
+  background-color: #f4f6f9;
+}
+
+/* When sidebar is closed (collapsed) */
+.content.full-width {
+  margin-left: 70px; /* match .sidebar.closed width */
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  padding: 15px 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* stays above sidebar */
+}
+
+.menu-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-info button {
+  background-color: #e53935;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.user-info button:hover {
+  background-color: #c62828;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: 60px; /* below navbar */
+  left: 0;
+  height: calc(100vh - 60px);
+  width: 220px;
+  background-color: #1976d2;
+  color: white;
+//   overflow-y: auto; 
+  transition: width 0.3s;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+}
+.menu-btn mat-icon {
+  font-size: 28px;
+  transition: transform 0.4s ease;
+}
+
+.menu-btn.rotated mat-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar.closed {
+  width: 70px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px 10px 14px 0px;
+}
+.sidebar li.active {
+  background-color: #070808;
+  font-weight: 600;
+}
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar li:hover {
+  background-color: #0d47a1;
+}
+
+.sidebar .icon {
+  font-size: 1.4rem;
+}
+
+.sidebar .label {
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.closed .label {
+  opacity: 0;
+  pointer-events: none;
+}

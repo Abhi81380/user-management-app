@@ -1,0 +1,15 @@
+<div class="container">
+  {{login}}<br>
+  {{password}}
+</div>
+<div class="login-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label>Email:</label>
+    <input type="email" formControlName="email" placeholder="Enter your email" />
+    <label>Password:</label>
+    <input type="password" formControlName="password" placeholder="Enter your password" />
+    <button type="submit">Login</button>
+    <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
+  </form>
+</div>
