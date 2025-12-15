@@ -16,8 +16,10 @@ export class Logincomponent {
 
   constructor(private fb: FormBuilder, private auth: Authservice, private router: Router) {}
 
-login='test@example.com'
-password='123456'
+login='admin@example.com'
+password='admin123'
+login2='user@example.com'
+password2='user123'
   
     errorMsg = '';
     loginForm!: FormGroup;
@@ -28,6 +30,18 @@ password='123456'
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+    this.auth.logout();
+
+  //     if (this.auth.isLoggedIn()) {
+  //   const role = this.auth.getRole();
+
+  //   if (role === 'admin'|| role === 'user') {
+  //     this.router.navigate(['/home/app-user-list']);
+  //   } else {
+  //     this.router.navigate(['/home/dashboard']);
+  //   }
+  // }
+    
   }
 
   

@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Authservice } from '../../../core/services/authservice';
 
   @Component({
     selector: 'app-user-list',
@@ -28,7 +29,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   dataSource = new MatTableDataSource<any>([]);
   loading = true;
 
-    constructor(private userService: Userservice,private cdRef: ChangeDetectorRef,private router:Router) {}
+    constructor(private userService: Userservice,private cdRef: ChangeDetectorRef,private router:Router, private auth:Authservice) {}
 
 
       ngOnInit(): void {
@@ -67,6 +68,9 @@ editUser(id: number): void {
         }
       });
     }
+  }
+     isAdmin(): boolean {
+    return this.auth.getRole() === 'admin';
   }
 
 }

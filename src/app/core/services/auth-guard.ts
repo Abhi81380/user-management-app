@@ -1,10 +1,10 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { Authservice } from './authservice';
-import { Inject } from '@angular/core';
+import { inject } from '@angular/core';
 export const authGuard: CanActivateFn = (route, state) => {
 
-    const auth = Inject(Authservice);
-  const router = Inject(Router);
+    const auth = inject(Authservice);
+  const router = inject(Router);
 
   if (auth.isLoggedIn()) {
     return true;
@@ -14,7 +14,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
   // return true;
 };
-function inject(AuthService: any) {
-  throw new Error('Function not implemented.');
-}
+// function inject(AuthService: any) {
+//   throw new Error('Function not implemented.');
+// }
 

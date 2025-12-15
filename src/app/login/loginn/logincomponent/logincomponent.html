@@ -1,14 +1,19 @@
-<div class="container">
+<div class="maindiv"><div class="container">
   {{login}}<br>
   {{password}}
+</div>
+<div class="container">
+  {{login2}}<br>
+  {{password2}}
+</div>
 </div>
 <div class="login-container">
   <h2>Login</h2>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <label>Email:</label>
-    <input type="email" formControlName="email" placeholder="Enter your email" />
+    <input type="email" formControlName="email" placeholder="Enter your email" autocomplete="username" />
     <label>Password:</label>
-    <input type="password" formControlName="password" placeholder="Enter your password" />
+    <input type="password" formControlName="password" placeholder="Enter your password" autocomplete="current-password"/>
     <button type="submit">Login</button>
     <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
   </form>

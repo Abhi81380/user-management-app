@@ -5,36 +5,40 @@ import { NgModule } from '@angular/core';
 import { Logincomponent } from './login/loginn/logincomponent/logincomponent';
 import { Homecomponent } from './home/home/homecomponent/homecomponent';
 import { authGuard } from './core/services/auth-guard';
-import { Dashboardcomponent } from './modules/dashboard/dashboardcomponent/dashboardcomponent';
-import { DashboardModule } from './modules/dashboard/dashboard-module';
-
-
+import { adminGuardGuard } from './core/services/admin-guard-guard';
+import { Unauthorized } from '../app/unauthorised/unauthorized/unauthorized';
 export const routes: Routes = [
-
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-  { path: 'login',component:Logincomponent},
+  { path: 'login', component: Logincomponent, },
   {
-    path:'home',
-    component:Homecomponent,
-    // canActivate:[authGuard],
-    children:[
-      { path: 'dashboard', loadComponent: () => import('./modules/dashboard/dashboardcomponent/dashboardcomponent').then(m => m.Dashboardcomponent) }, 
-      { path: 'app-user-list', component: UserList },
-      { path: 'app-user-add', component: UserAdd },
-      { 
-       path: 'app-user-edit/:id', 
-       loadComponent: () => import('./modules/users/user-edit/user-edit').then(m => m.UserEdit)
+    path: 'home',
+    component: Homecomponent,
+    canActivate: [authGuard],
+    //  canActivate: [adminGuardGuard] 
+    children: [
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./modules/dashboard/dashboardcomponent/dashboardcomponent').then(
+            (m) => m.Dashboardcomponent
+          ),
       },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
-       
- 
-       
-  
-    ]
-  },{ path: '**', redirectTo: 'login' }
-
- 
+      { path: 'app-user-list', component: UserList},
+      { path: 'app-user-add', component: UserAdd,canActivate: [adminGuardGuard] },
+      {
+        path: 'app-user-edit/:id',
+        loadComponent: () => import('./modules/users/user-edit/user-edit').then((m) => m.UserEdit),
+      },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    ],
+  },
+  {
+    path: 'app-unauthorized',
+    loadComponent: () =>
+      import('../app/unauthorised/unauthorized/unauthorized').then((m) => m.Unauthorized),
+  },
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({

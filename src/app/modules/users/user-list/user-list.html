@@ -2,7 +2,7 @@
   <mat-toolbar color="primary" class="toolbar">
     <span class="title">👥 User Management</span>
     <span class="spacer"></span>
-    <button mat-raised-button color="accent" routerLink="/home/app-user-add">
+    <button mat-raised-button color="accent" routerLink="/home/app-user-add" *ngIf="isAdmin()" >
       <mat-icon>person_add</mat-icon>
       Add User
     </button>

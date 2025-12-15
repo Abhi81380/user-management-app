@@ -12,16 +12,19 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class Homecomponent {
 
-    userName = 'Abhinand';
+    
     sidebarOpen = false;
-
-
     constructor(private auth: Authservice, private router: Router) {}
+    get username(): string | null {
+  return this.auth.getRole();
+}
 
       toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
   }
-
+    isAdmin(): boolean {
+    return this.auth.getRole() === 'admin';
+  }
 
   logout() {
     this.auth.logout();

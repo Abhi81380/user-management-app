@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center */
+  align-items: center;     /* horizontally center */
+  height: 50vh;           /* full viewport height */
+  text-align: center;      /* center text */
+}
+
+.container h2 {
+  color: red;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.container p {
+  color: #333;
+  font-size: 16px;
+}

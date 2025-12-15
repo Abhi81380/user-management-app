@@ -6,11 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Userservice {
-  // getUserById(userId: number) {
-  //   throw new Error('Method not implemented.');
-  // }
 
- private baseUrl = 'http://localhost:3000/api/users';
+
+//  private baseUrl = 'http://localhost:3000/api/users';
+ private baseUrl = 'https://user-management-backend-tepl.onrender.com/api/users';
 
   constructor(private http: HttpClient) {}
 
