@@ -1,0 +1,27 @@
+<div class="chatbot">
+  <button class="chat-toggle" (click)="toggleChat()">
+    💬
+  </button>
+
+  @if (isOpen) {
+    <div class="chat-window">
+      <div class="chat-header">
+        <h4>AI Chatbot</h4>
+        <button (click)="toggleChat()">✖</button>
+      </div>
+
+      <div class="chat-body">
+        @for (msg of messages; track msg) {
+          <div class="chat-message" [class.user]="msg.sender === 'user'" [class.bot]="msg.sender === 'bot'">
+            <strong>{{ msg.sender === 'user' ? 'You' : 'Bot' }}:</strong> {{ msg.text }}
+          </div>
+        }
+      </div>
+
+      <div class="chat-input">
+        <input [(ngModel)]="userInput" placeholder="Ask about user management..." />
+        <button (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  }
+</div>

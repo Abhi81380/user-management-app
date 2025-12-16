@@ -3,10 +3,11 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Authservice } from '../../../core/services/authservice';
 import { MatIconModule } from '@angular/material/icon';
+import { Chatbot } from '../../../features/chatbot/chatbot';
 
 @Component({
   selector: 'app-homecomponent',
-  imports: [CommonModule, RouterModule,MatIconModule],
+  imports: [CommonModule, RouterModule,MatIconModule,Chatbot],
   templateUrl: './homecomponent.html',
   styleUrl: './homecomponent.scss',
 })

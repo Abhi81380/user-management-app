@@ -1,4 +1,4 @@
-    <mat-card class="add-user-card mat-elevation-z4">
+<mat-card class="add-user-card mat-elevation-z4">
   <mat-toolbar color="primary" class="toolbar">
     <mat-icon>person_add</mat-icon>
     <span>Add New User</span>
@@ -7,36 +7,24 @@
   <form #f="ngForm" (ngSubmit)="saveUser()" class="form-container">
     <mat-form-field appearance="outline" class="form-field">
       <mat-label>First Name</mat-label>
-      <input
-        matInput
-        [(ngModel)]="user.firstName"
-        name="firstName"
-        required
-        autocomplete="off"
-      />
+      <input matInput [(ngModel)]="user.firstName" name="firstName" required autocomplete="off" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-field">
       <mat-label>Last Name</mat-label>
-      <input
-        matInput
-        [(ngModel)]="user.lastName"
-        name="lastName"
-        required
-        autocomplete="off"
-      />
+      <input matInput [(ngModel)]="user.lastName" name="lastName" required autocomplete="off" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-field">
       <mat-label>Email</mat-label>
-      <input
-        matInput
-        [(ngModel)]="user.email"
-        name="email"
-        type="email"
-        required
-        autocomplete="off"
-      />
+      <input matInput [(ngModel)]="user.email" name="email" type="email" required
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" #emailCtrl="ngModel" autocomplete="off" />
+        <mat-error *ngIf="emailCtrl.invalid && emailCtrl.touched">
+ 
+    <span *ngIf="emailCtrl.errors?.['pattern']">
+      Invalid email format
+    </span>
+  </mat-error>
     </mat-form-field>
 
     <div class="action-buttons">

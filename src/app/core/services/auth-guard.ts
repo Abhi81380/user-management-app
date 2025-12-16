@@ -14,7 +14,5 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
   // return true;
 };
-// function inject(AuthService: any) {
-//   throw new Error('Function not implemented.');
-// }
+
 

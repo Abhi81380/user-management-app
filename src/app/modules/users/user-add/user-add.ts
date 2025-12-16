@@ -41,8 +41,6 @@ export class UserAdd {
 
     this.userService.addUser(this.user).subscribe({
       next: (newUser) => {
-        console.log('✅ User added:', newUser);
-
         // ✅ Show Material Snackbar success message
         this.snackBar.open('✅ User added successfully!', 'Close', {
           duration: 2500,
