@@ -11,6 +11,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 - Form validation
 - REST API integration
 - AI Chat bot Integration
+- JSON Web token for Authentication
 
  ## Tech Stack
 - Angular
