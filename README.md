@@ -12,8 +12,11 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 - REST API integration
 - AI Chat bot Integration
 - JSON Web token for Authentication
+  
+## Additional information
+Hosted the project with cloud platform called Render
 
- ## Tech Stack
+## Tech Stack
 - Angular
 - TypeScript
 - Node.js
