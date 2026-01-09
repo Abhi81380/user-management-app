@@ -1,6 +1,23 @@
 # UserManagement
 
+A web-based application to manage users with full CRUD functionality.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
+
+## Features
+- View user list
+- Add new users
+- Edit user details
+- Delete users
+- Form validation
+- REST API integration
+- AI Chat bot Integration
+
+ ## Tech Stack
+- Angular
+- TypeScript
+- Node.js
+- Express.js
+- MongoDB
 
 ## Development server
 
